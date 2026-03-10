@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
+import Menu from "@/app/components/molecules/Menu";
 
 export const Index = () => {
   return (
@@ -23,7 +24,7 @@ export const Index = () => {
         />
       </div>
       <div className="bg-blanco shadow-md w-5/6 absolute inset-x-10 top-20">
-        Menu
+        <Menu></Menu>
       </div>
     </div>
   );
