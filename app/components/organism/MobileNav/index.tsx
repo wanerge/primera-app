@@ -1,9 +1,12 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
 import Menu from "@/app/components/molecules/Menu";
 
 export const Index = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   return (
     <div className="flex flex-row items-center justify-between w-full bg-primary shadow-md py-4 px-6 relative">
       <div>
@@ -16,16 +19,23 @@ export const Index = () => {
         />
       </div>
       <div>
-        <Icon
-          icon="material-symbols:menu-rounded"
-          color="ffffff"
-          width={42}
-          height={24}
-        />
+        <button
+          onClick={() => setIsMenuOpen(!isMenuOpen)}
+          className="focus:outline-none"
+        >
+          <Icon
+            icon="material-symbols:menu-rounded"
+            color="#ffffff"
+            width="42"
+            height="24"
+          />
+        </button>
       </div>
-      <div className="bg-blanco shadow-md w-5/6 absolute inset-x-10 top-20">
-        <Menu></Menu>
-      </div>
+      {isMenuOpen && (
+        <div className="bg-blanco shadow-md w-5/6 absolute inset-x-10 top-20 z-50">
+          <Menu></Menu>
+        </div>
+      )}
     </div>
   );
 };
